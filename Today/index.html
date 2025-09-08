@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Расписание на сегодня</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../data.js"></script>
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Сегодняшние пары</h1>
+    <div id="today-schedule"></div>
+    <a href="../Week/" class="switch">Полное расписание</a>
+    <div id="break-indicator" style="text-align:center; margin-top:10px; font-style:italic; opacity:0.8;"></div>
+    <div class="dev-tools" style="display:none; gap:8px; align-items:center; margin:12px 0;">
+        <input type="date" id="test-date">
+        <button id="apply-test-date">Применить</button>
+        <button id="reset-test-date">Сбросить</button>
+        <span id="week-type-badge" style="opacity:.8;"></span>
+    </div>
+  </div>
+</body>
+</html>
