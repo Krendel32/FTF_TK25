@@ -50,6 +50,51 @@ function getWeekType(current = now()) {
   return CONFIG.firstWeekType === "even" ? "odd" : "even";
 }
 
+
+function renderBreakIndicator(lessons, dt = now()) {
+  const indicator = document.getElementById("break-indicator");
+  if (!indicator) return;
+
+  indicator.textContent = "";
+  indicator.style.display = "none";
+
+  if (!lessons || lessons.length === 0) return;
+
+  const cur = dt.getHours() * 60 + dt.getMinutes();
+
+  // Проверяем, не в паре ли мы (если да — индикатор не нужен)
+  if (lessons.some(l => isActiveLesson(l, dt))) return;
+
+  // Проверяем промежутки
+  for (let i = 0; i < lessons.length - 1; i++) {
+    const end = hmToMinutes(lessons[i].end);
+    const startNext = hmToMinutes(lessons[i + 1].start);
+
+    if (cur > end && cur < startNext) {
+      indicator.textContent = `Сейчас перерыв (следующая пара в ${lessons[i + 1].start})`;
+      indicator.style.display = "block";
+      return;
+    }
+  }
+
+  // Если прошли все пары
+  const lastEnd = hmToMinutes(lessons[lessons.length - 1].end);
+  if (cur > lastEnd) {
+    indicator.textContent = "На сегодня пары закончились ✅";
+    indicator.style.display = "block";
+    return;
+  }
+
+  // Если ещё до первой пары
+  const firstStart = hmToMinutes(lessons[0].start);
+  if (cur < firstStart) {
+    indicator.textContent = `До первой пары (${lessons[0].start})`;
+    indicator.style.display = "block";
+  }
+}
+
+
+
 function getDayName(date) {
   const days = [
     "sunday",
@@ -98,6 +143,7 @@ function renderToday() {
     div.innerHTML = `<strong>${lesson.subject}</strong><br>${lesson.start} - ${lesson.end}`;
     if (isActiveLesson(lesson, today)) div.classList.add("active");
     container.appendChild(div);
+    renderBreakIndicator(lessons, today);
   });
 }
 
@@ -141,6 +187,7 @@ function renderWeek(weekType, dt = now()) {
   if (badge) {
     badge.textContent = weekType === "even" ? "Чётная неделя" : "Нечётная неделя";
   }
+  
 }
 
 /***** ПРИМЕНЕНИЕ/СБРОС ТЕСТ-ДАТЫ *****/
