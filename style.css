@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  width: 60%;
   margin: auto;
   padding: 20px;
 }
@@ -43,4 +43,8 @@ h1 {
 
 .switch:hover, button:hover {
   background: #555;
+}
+
+@media (max-width: 600px) {
+    .container {width: 90%}
 }
