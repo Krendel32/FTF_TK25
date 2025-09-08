@@ -12,6 +12,8 @@ body {
 }
 
 h1 {
+  font-size: 2rem;
+  font: bolder;
   text-align: center;
   color: #ffffff;
 }
@@ -46,5 +48,6 @@ h1 {
 }
 
 @media (max-width: 600px) {
-    .container {width: 90%}
+    .container {width: 90%};
+    h1 {font-size: 1.1rem;}
 }
