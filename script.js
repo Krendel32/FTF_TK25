@@ -243,5 +243,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Автообновление подсветки раз в минуту (использует текущую customDate, если задана)
-  setInterval(() => rerenderAll(), 60 * 1000);
+  setInterval(() => rerenderAll(), 10 * 1000);
 });
