@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.lesson {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #1e1e1e;
+  transition: background 0.3s;
+}
+
+.lesson.active {
+  background: #2e7d32; /* зелёный для текущей пары */
+}
+
+.switch, button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 15px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.switch:hover, button:hover {
+  background: #555;
+}
