@@ -14,7 +14,7 @@ const schedule = {
       { subject: " - ", start: "12:45", end: "14:05"}
     ],
     wednesday: [
-      { subject: "Пр Менеджмент та підприємництво", start: "08:00", end: "9:20" },
+      { subject: " - ", start: "08:00", end: "9:20" },
       { subject: "Пр Сучасна українська мова", start: "9:35", end: "10:55" },
       { subject: "Лз Основи програмування", start: "11:10", end: "12:30" },
       { subject: " - ", start: "12:45", end: "14:05"}
@@ -46,7 +46,7 @@ const schedule = {
       { subject: " - ", start: "12:45", end: "14:05"}
     ],
     wednesday: [
-      { subject: " - ", start: "08:00", end: "9:20" },
+      { subject: "Пр Менеджмент та підприємництво", start: "08:00", end: "9:20" },
       { subject: "Лз Основи програмування", start: "9:35", end: "10:55" },
       { subject: "Пр Історія та культура", start: "11:10", end: "12:30" },
       { subject: " - ", start: "12:45", end: "14:05"}
